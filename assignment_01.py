@@ -32,7 +32,7 @@ github = oauth.register(
 github_admin_usernames = ["Swarnali-sitare", "atmabodha"]
 
 # Connect to PostgreSQL database
-dbl = dpg-cnn1aoqcn0vc738gmuvg-a.oregon-postgres.render.com 
+dbl = "dpg-cnn1aoqcn0vc738gmuvg-a.oregon-postgres.render.com"
 host = f"{dbl}"
 conn = psycopg2.connect(
     dbname="article_analyaser",
