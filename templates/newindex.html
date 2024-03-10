@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get News Article</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: url('https://tse1.mm.bing.net/th?id=OIP.1KCLBPUabtWJaN9D-HudJQHaFV&pid=Api&P=0&h=180'); /* Add the path to your image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            color: #c56007; /* Text color */
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #ae4c06;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .btn:hover {
+            background-color: #e39d12;
+        }
+
+        .btn i {
+            margin-right: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #cc9900; 
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #cb3309; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('github_login') }}" class="btn btn-dark mb-2">
+        <i class="fab fa-github"></i>
+        <span>View History</span>
+    </a>
+
+    <div>
+        <h1>Enter the URL of a NEWS Article</h1>
+        <form id="articleForm" action="/get_article" method="post">
+            <input type="text" id="articleUrl" name="url" placeholder="Enter URL" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

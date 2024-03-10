@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Submission History</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://example.com/background-image.jpg'); /* Replace 'https://example.com/background-image.jpg' with your actual background image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #0073e6; /* Changing h1 color to a lighter shade of blue (#0073e6) */
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            color: #000; /* Changing table contents color to black (#000) */
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #004080; /* Changing button color to a darker shade of blue (#004080) */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #00284d; /* Darken the button color on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>URL Submission History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>URL</th>
+                <th>Number of Sentences</th>
+                <th>Number of Words</th>
+                <th>View Analysis</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+            <tr>
+                <td>{{ article[0] }}</td>
+                <td>{{ article[1] }}</td>
+                <td>{{ article[3] }}</td>
+                <td>{{ article[4] }}</td>
+                <td><a href="{{ url_for('view_analysis', article_id=article[0]) }}">View</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div style="text-align: center;">
+        <a href="{{ url_for('github_logout') }}" class="btn">
+            <i class="fab fa-github"></i>
+            <span>Return to Homepage</span>
+        </a>
+    </div>
+</body>
+</html>
