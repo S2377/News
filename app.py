@@ -23,11 +23,13 @@ nltk.download('averaged_perceptron_tagger')
 
 ###########################################       Database setup   ###########################################################
 
+database_url = "dpg-cnn1aoqcn0vc738gmuvg-a.oregon-postgres.render.com"
+host = f"{database_url}"
 conn = psycopg2.connect(  
-    host="localhost",
-    database="DHP",
-    user="postgres",
-    password="2375rashu"
+    host = host,
+    dbname="article_analyaser",
+    user="article_analyaser_user",
+    password="sqGshL8qhJfDTfu3dAs1UwMXI1YueDq9"
 )
 
 
@@ -284,4 +286,4 @@ def logout():
 
     
 if __name__ == '__main__':
-    app.run(debug=True, port = 5000)
+    app.run(debug=True, host = '0.0.0.0')
