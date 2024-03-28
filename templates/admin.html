@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #main {
+            background-color: aqua;
+        }
+
+        header {
+            color: #1d1b1b;
+            padding: 20 px;
+            text-align: center;
+
+        }
+
+        header h1 {
+            color: #1c1c1c;
+            text-align: center;
+            text-align: center;
+            margin-top: 30px;
+
+        }
+
+        header h2 {
+            color: #212020;
+            margin-bottom: 20px;
+            text-align: center;
+
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            background-color: #ff4000;
+            margin-bottom: auto;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #6bf852;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="main">
+            <h1>ADMIN PANEL</h1>
+            <h2>USERS SEARCH HISTORY</h2>
+        </div>
+        <!-- Back to Home Button -->
+        <a href="/home" class="btn">Back To Home</a>
+        <br>
+        <br>
+    </header>
+
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>ID</th>
+                <th>URL</th>
+                <th>Title</th>
+                <th>Text</th>
+                <th>Num_Words</th>
+                <th>Num_sentences</th>
+                <th>POS Tag</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for username in usernames %}
+            {% for article in articles %}
+            <tr>
+                <td>{{ username }}</td>
+                {% for data in article %}
+                <td>{{ data }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
+
+

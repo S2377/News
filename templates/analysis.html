@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB0MB2wsgsFknIGVb48Rz45onTrbp-qK679g&usqp=CAU');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .container {
+            /* background-color: #fff; */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 1300px;
+            margin: 60px auto 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .result-box {
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: left;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        .horizontal {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .horizontal .result-box {
+            margin: 10px;
+        }
+
+        #history {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+            position: fixed;
+            /* Set button position to fixed */
+            top: 20px;
+            /* Adjust top position as needed */
+            left: 20px;
+            /* Adjust left position as needed */
+            z-index: 99;
+            /* Ensure the button is on top of other content */
+        }
+
+        button.logout {
+            background-color: rgb(239, 44, 44);
+            /* Red color for logout button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+            position: fixed;
+            /* Set button position to fixed */
+            top: 20px;
+            /* Adjust top position as needed */
+            left: calc(20px + 140px);
+            /* Adjust left position as needed (20px + width of previous button + margin) */
+            z-index: 99;
+            /* Ensure the button is on top of other content */
+        }
+
+        button:hover {
+            background-color: #00b315;
+        }
+
+        #history:hover {
+            background-color: #00b315;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/login/github"><button id='history'>VIEW HISTORY</button></a>
+    <form action="/logout" method="GET" class="logout-btn">
+        <button type="submit" class="btn btn-danger logout">Logout</button>
+    </form>
+
+    <div class="container">
+        <h1>ANALYSIS RESULT</h1>
+        <div class="result-box">
+            <p><b>URL: </b> {{ url }}</p>
+        </div>
+        <div class="result-box">
+            <p><b>Title: </b>{{ title}}</p>
+        </div>
+        <div class="result-box">
+            <p><b>Text: </b>{{news_text}}</p>
+        </div>
+        <div class="horizontal">
+            <div class="result-box">
+                <p><b>Number of Sentences: </b>{{ num_sentences }}</p>
+            </div>
+            <div class="result-box">
+                <p><b>Number of Words: </b>{{ num_words }}</p>
+            </div>
+            <div class="result-box">
+                <p><b>Total Number of Hyperlinks: </b>{{ count_hyperlink}}</p>
+            </div>
+            <div class="result-box">
+                <p><b>POS Tags: </b>{{ upos_dict }}</p>
+            </div>
+            <div class="result-box">
+                <p><b>Noun_pronoun Ratio: </b>{{noun_pronoun_ratio}}</p>
+            </div>
+            <div class="result-box">
+                <p><b>Verb_adverb Ratio: </b>{{verb_adv_ratio}}</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
